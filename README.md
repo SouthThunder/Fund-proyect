@@ -2,7 +2,7 @@
 
 Documentación: 
     
-   -> https://github.com/davidfer1112/Proyecto-FISW/tree/master/Documentacion <-
+   -> https://github.com/SouthThunder/Fund-proyect/tree/main/Documentacion <-
    
         Descripción: En esta carpeta se encuentra los documentos del proyecto, como por ejemplo 
         la visión y descripción de este
@@ -10,7 +10,7 @@ Documentación:
         
 Diagramas:
     
-   -> https://github.com/davidfer1112/Proyecto-FISW/tree/master/Diagramas <-
+   -> https://github.com/SouthThunder/Fund-proyect/tree/main/Diagramas <-
    
        Descripción: En esta carpeta se encuentra los diagramas refentes al proyecto
 
@@ -27,3 +27,7 @@ Cronograma:
    -> https://davidfer.atlassian.net/jira/software/projects/FISW/boards/1 <-
    
         Descripción: Aquí se encuentra nuestra planificación de actividades del proyecto
+       
+       
+Plan de iteraciones:
+
