@@ -13,18 +13,18 @@ public class HelloApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
 
-        Scene scene = new Scene(root);
+        //Scene scene = new Scene(root);
 
+       //stage.setScene(scene);
+        //stage.show();
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        stage.setTitle("Hello!");
         stage.setScene(scene);
         stage.show();
-
-        //FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
-        //Scene scene = new Scene(fxmlLoader.load());
-        //stage.setTitle("Hello!");
-        //stage.setScene(scene);
-        //stage.show();
     }
 
     public static void main(String[] args) {

@@ -37,6 +37,7 @@ public class HelloController implements Initializable {
 
 
 
+
     //metodos
     @FXML
     public void actionEvent(ActionEvent event){
@@ -55,6 +56,13 @@ public class HelloController implements Initializable {
 
     }
 
+    public void onSingUpButtonClicked(MouseEvent event){
+
+        singInForm.setVisible(false);
+        singUpForm.setVisible(true);
+
+    }
+
 
     // merodo para obtener las escenas VBox
     private VBox loadForm(String url) throws IOException{
@@ -67,7 +75,7 @@ public class HelloController implements Initializable {
 
         try {
             singInForm = loadForm("Singin.fxml");
-            singInForm = loadForm("Singun.fxml");
+            singUpForm = loadForm("Singup.fxml");
             containerForm.getChildren().addAll(singInForm,singUpForm);
             singInForm.setVisible(true);
             singUpForm.setVisible(false);
