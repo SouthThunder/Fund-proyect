@@ -17,6 +17,11 @@ Diagramas:
    -> https://github.com/SouthThunder/Fund-proyect/tree/main/Diagramas <-
    
        Descripción: En esta carpeta se encuentra los diagramas refentes al proyecto
+       
+       Contenido:
+            
+            > Diagrama de casos de uso
+            > Relacion Base de datos
 
 
 Pantalla :
