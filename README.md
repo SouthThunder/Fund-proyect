@@ -4,8 +4,12 @@ Documentación:
     
    -> https://github.com/SouthThunder/Fund-proyect/tree/main/Documentacion <-
    
-        Descripción: En esta carpeta se encuentra los documentos del proyecto, como por ejemplo 
-        la visión y descripción de este
+        Descripción: En esta carpeta se encuentra los documentos del proyecto.
+        
+        Contenido:
+            
+            > Documento de Vision
+            > Plan de iteraciones
         
         
 Diagramas:
@@ -24,10 +28,8 @@ Pantalla :
 
 Cronograma:
 
-   -> https://davidfer.atlassian.net/jira/software/projects/FISW/boards/1 <-
+   -> https://trello.com/b/5CsA1Ra4/iteracion-1 <-
    
-        Descripción: Aquí se encuentra nuestra planificación de actividades del proyecto
-       
-       
-Plan de iteraciones:
+         Descripción: Aquí se encuentra nuestra planificación de actividades del proyecto
+      
 
