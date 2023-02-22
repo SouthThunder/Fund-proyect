@@ -61,6 +61,9 @@ public class HelloController implements Initializable {
         singInForm.setVisible(false);
         singUpForm.setVisible(true);
 
+
+
+
     }
 
 
