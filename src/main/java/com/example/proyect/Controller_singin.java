@@ -34,6 +34,7 @@ public class Controller_singin implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb){
 
+
         maskPassword(txtpasswordSingin,txtpasswordSinginMask,checkViewpasswordSingin);
 
 

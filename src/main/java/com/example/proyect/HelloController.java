@@ -1,6 +1,8 @@
 package com.example.proyect;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -92,7 +94,15 @@ public class HelloController implements Initializable {
     }
 
 
+    public void holi(MouseEvent event){
+        System.out.println("soy un holi");
+    }
 
+    public void onExitButtonClicked(MouseEvent event){ // evento que al darle click se salga del promgrama
+        // este metodo esta implementado  a la imagen de salida, para que cuando se le de click se salga del programa
+        Platform.exit();
+        System.exit(0);
+    }
 
 
 
