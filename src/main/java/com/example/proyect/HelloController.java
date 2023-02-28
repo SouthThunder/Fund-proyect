@@ -34,8 +34,7 @@ public class HelloController implements Initializable {
     private Button btnSingup;
     @FXML
     private StackPane containerForm;
-    @FXML
-    private ImageView img_ola;
+
 
     private VBox singInForm;
     private VBox singUpForm;

@@ -34,9 +34,8 @@
             </Label>
             <ImageView fitHeight="63.0" fitWidth="75.0" onMouseClicked="#holi" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../java/Images/icons8-wave-96.png" />
-               </image>
-            </ImageView>
+                  <Image url="@images/icons8-wave-96.png" />
+               </image></ImageView>
             <Label text="¿Estas registrado?" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <VBox.margin>
                   <Insets top="10.0" />
@@ -75,7 +74,7 @@
                         <Insets left="275.0" top="50.0" />
                      </HBox.margin>
                      <image>
-                        <Image url="@../../../../java/Images/icons8-salida-de-emergencia-100.png" />
+                        <Image url="@images/icons8-salida-de-emergencia-100.png" />
                      </image>
                   </ImageView>
                </children>
