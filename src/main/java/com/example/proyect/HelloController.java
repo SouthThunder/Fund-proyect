@@ -8,6 +8,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -31,6 +32,8 @@ public class HelloController implements Initializable {
     private Button btnSingup;
     @FXML
     private StackPane containerForm;
+    @FXML
+    private ImageView img_ola;
 
     private VBox singInForm;
     private VBox singUpForm;
@@ -87,6 +90,9 @@ public class HelloController implements Initializable {
         }
 
     }
+
+
+
 
 
 
