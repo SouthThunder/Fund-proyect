@@ -34,7 +34,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <TextField fx:id="txtUsuarioSingin" prefHeight="37.0" promptText="Ejem: Pepito@hola.com">
+            <TextField fx:id="txtUsuarioSingin" prefHeight="37.0" promptText="Ejem: Pepito@hola.com" style="-fx-border-color: #202C3F; -fx-border-radius: 20px; -fx-background-radius: 20px;">
                <font>
                   <Font size="14.0" />
                </font>
@@ -49,12 +49,12 @@
             </Label>
             <StackPane>
                <children>
-                  <PasswordField fx:id="txtpasswordSingin" prefHeight="37.0" promptText="Ejem: 12345">
+                  <PasswordField fx:id="txtpasswordSingin" prefHeight="37.0" promptText="Ejem: 12345" style="-fx-border-color: #202C3F; -fx-background-radius: 20px; -fx-border-radius: 20px;">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </PasswordField>
-                  <TextField fx:id="txtpasswordSinginMask" prefHeight="37.0" promptText="Ejem: 12345" visible="false">
+                  <TextField fx:id="txtpasswordSinginMask" prefHeight="37.0" promptText="Ejem: 12345" style="-fx-border-color: #202C3F; -fx-background-radius: 20px; -fx-border-radius: 20px;" visible="false">
                      <font>
                         <Font size="14.0" />
                      </font>

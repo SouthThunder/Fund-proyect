@@ -1,6 +1,8 @@
 package com.example.proyect;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -8,6 +10,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -31,6 +34,7 @@ public class HelloController implements Initializable {
     private Button btnSingup;
     @FXML
     private StackPane containerForm;
+
 
     private VBox singInForm;
     private VBox singUpForm;
@@ -86,6 +90,17 @@ public class HelloController implements Initializable {
             throw new RuntimeException(e);
         }
 
+    }
+
+
+    public void holi(MouseEvent event){
+        System.out.println("soy un holi");
+    }
+
+    public void onExitButtonClicked(MouseEvent event){ // evento que al darle click se salga del promgrama
+        // este metodo esta implementado  a la imagen de salida, para que cuando se le de click se salga del programa
+        Platform.exit();
+        System.exit(0);
     }
 
 

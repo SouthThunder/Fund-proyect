@@ -3,6 +3,8 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
@@ -22,7 +24,7 @@
    <children>
       <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #202C3F;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
          <children>
-            <Label text="Bienvenido a &quot;Nombre&quot;" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+            <Label text="Bienvenido a Pyme Wave" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <font>
                   <Font name="System Bold" size="30.0" />
                </font>
@@ -30,6 +32,10 @@
                   <Insets left="40.0" right="40.0" />
                </VBox.margin>
             </Label>
+            <ImageView fitHeight="63.0" fitWidth="75.0" onMouseClicked="#holi" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@images/icons8-wave-96.png" />
+               </image></ImageView>
             <Label text="¿Estas registrado?" textAlignment="CENTER" textFill="WHITE" wrapText="true">
                <VBox.margin>
                   <Insets top="10.0" />
@@ -46,12 +52,12 @@
                   <Insets left="40.0" right="40.0" />
                </padding>
                <children>
-                  <Button fx:id="btnSingin" mnemonicParsing="false" onAction="#actionEvent" prefHeight="35.0" prefWidth="100.0" style="-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-background-color: #41AAAE;" text="Sing In" textFill="WHITE">
+                  <Button fx:id="btnSingin" mnemonicParsing="false" onAction="#actionEvent" prefHeight="35.0" prefWidth="100.0" style="-fx-border-radius: 10px; -fx-background-radius: 10px; -fx-background-color: #48C5EE; -fx-border-color: none;" text="Sing In" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnSingup" mnemonicParsing="false" onMouseClicked="#onSingUpButtonClicked" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #41AAAE; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Sing Up" textFill="WHITE">
+                  <Button fx:id="btnSingup" mnemonicParsing="false" onMouseClicked="#onSingUpButtonClicked" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #48C5EE; -fx-border-radius: 10px; -fx-background-radius: 10px; -fx-border-color: none;" text="Sing Up" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -59,6 +65,18 @@
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
+               </children>
+            </HBox>
+            <HBox minHeight="1.0" minWidth="1.0" prefHeight="25.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="40.0" fitWidth="36.0" onMouseClicked="#onExitButtonClicked" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="275.0" top="50.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@images/icons8-salida-de-emergencia-100.png" />
+                     </image>
+                  </ImageView>
                </children>
             </HBox>
          </children>
