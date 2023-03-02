@@ -8,6 +8,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.StageStyle;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,17 +27,20 @@ public class Controller_singup implements Initializable {
     // atributos para el formulario de empresa
 
     @FXML
-    private AnchorPane anchPaneEmp;
+    private AnchorPane anchPaneEmp;  // contenedor del formulario empresas
     @FXML
     private TextField txtEmailSingup;
     @FXML
     private TextField txtNumeroSingup;
     @FXML
+    private TextField txtNumeroID;
+    @FXML
+    private TextField txtUserName;
+    @FXML
     private TextField txtPassword;
     @FXML
     private TextField txtConfirmPassword;
-    @FXML
-    private ComboBox<String> combBoxTipoDoc;
+
     @FXML
     private Button btnSingUp;
     @FXML
@@ -47,6 +51,21 @@ public class Controller_singup implements Initializable {
 
     @FXML
     private AnchorPane anchPanePerna;
+    @FXML
+    private TextField txtEmailSingupPerNa;
+    @FXML
+    private TextField txtNumeroSingupPerna;
+    @FXML
+    private TextField txtUserNamePerna;
+    @FXML
+    private TextField txtPasswordPerna;
+    @FXML
+    private TextField txtConfirmPasswordPerna;
+    @FXML
+    private Button btnSingUpPerna;
+    @FXML
+    private Button btnCleanSingUpPerna;
+
 
 
     @Override
@@ -56,11 +75,114 @@ public class Controller_singup implements Initializable {
         anchPanePerna.setManaged(false); // le quita el espacio asignado
         checkEmpre.setSelected(true);
 
-        combBoxTipoDoc.getItems().addAll("C.C","NIT");
+
+        restrictionSpacesFormEmp(); //llamada de método para restringir espacios
+
+        restrictionSpacesForPerna(); //llamada de método para restringir espacios
+
+
+    }
 
 
 
-        // metodos para restringir el uso de espacios en contraseñas y usuario
+    public void registerEmp(){
+
+        textFieldEmptyEmp();
+
+    }
+
+    public void registerPerna(){
+
+        textFieldEmptyPerna();
+
+    }
+
+
+
+    public void textFieldEmptyEmp(){ // metodo para verificar que ningun Textfield quede vacio
+                                     // si este llega a estar vacio sale la advertencia
+
+        if(txtEmailSingup.getText().isEmpty() ||
+            txtPassword.getText().isEmpty() ||
+            txtUserName.getText().isEmpty() ||
+            txtNumeroSingup.getText().isEmpty() ||
+            txtConfirmPassword.getText().isEmpty() ||
+            txtNumeroID.getText().isEmpty()){
+
+
+            //System.out.println("Mi rey tienes que llenar todos los espacios");
+
+            // Crear una ventana emergente de advertencia
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Espacios vacios");
+            //alert.initStyle(StageStyle.TRANSPARENT);
+            alert.setHeaderText("Por favor asegúrese de que todos los espacios estén llenos");
+            //alert.setContentText("Por favor, tenga cuidado al realizar esta acción.");
+
+            // Mostrar la ventana emergente y esperar a que se cierre
+            alert.showAndWait();
+        }
+
+    }
+
+    public void textFieldEmptyPerna(){ // metodo para verificar que ningun Textfield quede vacio
+                                     // si este llega a estar vacio sale la advertencia
+
+        if(txtEmailSingupPerNa.getText().isEmpty() ||
+            txtPasswordPerna.getText().isEmpty() ||
+            txtUserNamePerna.getText().isEmpty() ||
+            txtNumeroSingupPerna.getText().isEmpty() ||
+            txtConfirmPasswordPerna.getText().isEmpty()){
+
+
+            //System.out.println("Mi rey tienes que llenar todos los espacios");
+
+            // Crear una ventana emergente de advertencia
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Espacios vacios");
+            //alert.initStyle(StageStyle.TRANSPARENT);
+            alert.setHeaderText("Por favor asegúrese de que todos los espacios estén llenos");
+            //alert.setContentText("Por favor, tenga cuidado al realizar esta acción.");
+
+            // Mostrar la ventana emergente y esperar a que se cierre
+            alert.showAndWait();
+        }
+
+    }
+
+
+
+
+    public void activeFormEm(Event event){
+
+        if(checkEmpre.isSelected() == true){
+
+            // se gestiona la visibilidad del formulario
+            checkPerna.setSelected(false);
+            anchPaneEmp.setVisible(true);
+            anchPaneEmp.setManaged(true);
+            anchPanePerna.setVisible(false);
+            anchPanePerna.setManaged(false);
+        }
+
+    }
+
+    public void activeFormPerna(Event event){
+
+        if(checkPerna.isSelected() == true){
+
+            // se gestiona la visibilidad del formulario
+            checkEmpre.setSelected(false);
+            anchPaneEmp.setVisible(false);
+            anchPaneEmp.setManaged(false);
+            anchPanePerna.setVisible(true);
+            anchPanePerna.setManaged(true);
+        }
+
+    }
+
+
+    public void restrictionSpacesFormEmp(){
         txtPassword.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
@@ -93,38 +215,72 @@ public class Controller_singup implements Initializable {
                 }
             }
         });
-
-
-
-    }
-
-    public void activeFormEm(Event event){
-
-        if(checkEmpre.isSelected() == true){
-
-            // se gestiona la visibilidad del formulario
-            checkPerna.setSelected(false);
-            anchPaneEmp.setVisible(true);
-            anchPaneEmp.setManaged(true);
-            anchPanePerna.setVisible(false);
-            anchPanePerna.setManaged(false);
-        }
-
-    }
-
-    public void activeFormPerna(Event event){
-
-        if(checkPerna.isSelected() == true){
-
-            // se gestiona la visibilidad del formulario
-            checkEmpre.setSelected(false);
-            anchPaneEmp.setVisible(false);
-            anchPaneEmp.setManaged(false);
-            anchPanePerna.setVisible(true);
-            anchPanePerna.setManaged(true);
-        }
+        txtNumeroID.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCharacter().equals(" ")){
+                    event.consume();
+                }
+            }
+        });
+        txtUserName.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCharacter().equals(" ")){
+                    event.consume();
+                }
+            }
+        });
 
     }
 
+    public void restrictionSpacesForPerna(){
+
+        txtConfirmPasswordPerna.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCharacter().equals(" ")){
+                    event.consume();
+                }
+            }
+        });
+
+        txtEmailSingupPerNa.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCharacter().equals(" ")){
+                    event.consume();
+                }
+            }
+        });
+
+        txtNumeroSingupPerna.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCharacter().equals(" ")){
+                    event.consume();
+                }
+            }
+        });
+
+        txtPasswordPerna.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCharacter().equals(" ")){
+                    event.consume();
+                }
+            }
+        });
+
+        txtUserNamePerna.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCharacter().equals(" ")){
+                    event.consume();
+                }
+            }
+        });
+
+    }
 
 }
