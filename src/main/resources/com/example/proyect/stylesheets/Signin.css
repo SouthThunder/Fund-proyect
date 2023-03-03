@@ -1,0 +1,15 @@
+.signindataentry{
+    -fx-border-color: #202C3F;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+.signinactionbtns{
+    -fx-background-color: #202C3F;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+}
+
+.signinactionbtns:hover{
+    -fx-cursor: hand;
+}
