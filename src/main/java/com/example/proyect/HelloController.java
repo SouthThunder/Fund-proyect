@@ -93,9 +93,6 @@ public class HelloController implements Initializable {
     }
 
 
-    public void holi(MouseEvent event){
-        System.out.println("soy un holi");
-    }
 
     public void onExitButtonClicked(MouseEvent event){ // evento que al darle click se salga del promgrama
         // este metodo esta implementado  a la imagen de salida, para que cuando se le de click se salga del programa
