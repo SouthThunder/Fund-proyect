@@ -8,13 +8,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
-public class Controller_singin implements Initializable {
+public class Controller_singin extends Encrypt implements Initializable {
 
 
     @FXML
@@ -29,7 +29,6 @@ public class Controller_singin implements Initializable {
     private Button btnSingin;
     @FXML
     private Button btnClean;
-
 
 
 
@@ -70,8 +69,6 @@ public class Controller_singin implements Initializable {
                 }
             }
         });
-
-
     }
 
 
@@ -84,7 +81,16 @@ public class Controller_singin implements Initializable {
         text.visibleProperty().bind(check.selectedProperty());
 
         text.textProperty().bindBidirectional(pass.textProperty());
+    }
 
+    public void onSingUpButtonClicked() throws NoSuchAlgorithmException {
+        checkPass(txtpasswordSinginMask.getText());
+    }
+
+    public void checkPass(String input) throws NoSuchAlgorithmException {
+        if(input==(super.hashString(input))){
+            System.out.println("Log-in success");
+        }
 
     }
 

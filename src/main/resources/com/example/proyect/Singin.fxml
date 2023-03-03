@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="panelFormularioSingin" alignment="CENTER" prefHeight="411.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.Controller_singin">
+<VBox fx:id="panelFormularioSingin" alignment="CENTER" prefHeight="411.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.Controller_singin" stylesheets="@Signin.css">
    <children>
-      <Label text="Iniciar Sesion">
+      <Label text="Iniciar Sesion" fx:id="testing">
          <font>
             <Font name="System Bold" size="30.0" />
          </font>
@@ -74,7 +74,7 @@
                   <Insets top="20.0" />
                </VBox.margin>
                <children>
-                  <Button fx:id="btnSingin" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #202C3F; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Ingreasar" textFill="WHITE">
+                  <Button fx:id="btnSingin" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #202C3F; -fx-border-radius: 10px; -fx-background-radius: 10px;" text="Ingreasar" textFill="WHITE" onMouseClicked="#onSingUpButtonClicked">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>

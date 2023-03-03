@@ -126,5 +126,13 @@ public class Controller_singup implements Initializable {
 
     }
 
+    public void onSignUpbtnclick(){
+        if((txtPassword.getText()).compareTo(txtConfirmPassword.getText())==0)
+            System.out.println("idk");
+
+
+
+    }
+
 
 }
