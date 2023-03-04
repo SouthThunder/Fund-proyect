@@ -1,3 +1,16 @@
+#backtitle{
+    -fx-background-color: #202C3F;
+    -fx-border-width: 0 0 0 2px;
+    -fx-border-color: white;
+    -fx-alignment: center;
+    -fx-padding: 7px 0 7px 0;
+}
+
+#backtitle Label{
+    -fx-text-fill: White;
+
+}
+
 .signupdataentry{
     -fx-border-radius: 20px;
     -fx-background-radius: 20px;
