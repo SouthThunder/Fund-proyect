@@ -24,12 +24,15 @@
             </Label>
          </VBox>
       <Separator orientation="VERTICAL" prefWidth="29.0" visible="false" />
-      <HBox prefHeight="16.0" prefWidth="700.0">
+      <HBox prefHeight="16.0" prefWidth="700.0" fx:id="testid">
+         <VBox.margin>
+         <Insets top="-15"/>
+         </VBox.margin>
          <children>
             <Separator prefWidth="200.0" visible="false" />
-            <CheckBox fx:id="checkEmpre" mnemonicParsing="false" onAction="#activeFormEm" prefHeight="21.0" prefWidth="251.0" text="Empresa" />
+            <Button styleClass="changeviewbtns" fx:id="checkEmpre" mnemonicParsing="false" onAction="#activeFormEm"  minWidth="200" text="Empresa" > </Button>
             <Separator prefWidth="200.0" visible="false" />
-            <CheckBox fx:id="checkPerna" mnemonicParsing="false" onAction="#activeFormPerna" prefHeight="21.0" prefWidth="255.0" text="Persona natural" />
+            <Button styleClass="changeviewbtns" fx:id="checkPerna" mnemonicParsing="false" onAction="#activeFormPerna" minWidth="200" text="Persona natural" />
             <Separator prefWidth="200.0" visible="false" />
          </children>
       </HBox>

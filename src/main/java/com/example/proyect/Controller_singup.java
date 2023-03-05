@@ -19,9 +19,9 @@ public class Controller_singup implements Initializable {
     // atributos para cambiar entre formularios
 
     @FXML
-    private CheckBox checkEmpre;
+    private Button checkEmpre;
     @FXML
-    private CheckBox checkPerna;
+    private Button checkPerna;
 
 
     // atributos para el formulario de empresa
@@ -73,7 +73,7 @@ public class Controller_singup implements Initializable {
 
         anchPanePerna.setVisible(false); // lo vuelve invisible
         anchPanePerna.setManaged(false); // le quita el espacio asignado
-        checkEmpre.setSelected(true);
+        //checkEmpre.setSelected(true);
 
 
         restrictionSpacesFormEmp(); //llamada de método para restringir espacios
@@ -154,16 +154,11 @@ public class Controller_singup implements Initializable {
 
 
     public void activeFormEm(Event event){
-
-        if(checkEmpre.isSelected() == true){
-
             // se gestiona la visibilidad del formulario
-            checkPerna.setSelected(false);
             anchPaneEmp.setVisible(true);
             anchPaneEmp.setManaged(true);
             anchPanePerna.setVisible(false);
             anchPanePerna.setManaged(false);
-        }
 
     }
 
@@ -271,15 +266,11 @@ public class Controller_singup implements Initializable {
 
     public void activeFormPerna(Event event){
 
-        if(checkPerna.isSelected() == true){
-
             // se gestiona la visibilidad del formulario
-            checkEmpre.setSelected(false);
             anchPaneEmp.setVisible(false);
             anchPaneEmp.setManaged(false);
             anchPanePerna.setVisible(true);
             anchPanePerna.setManaged(true);
-        }
 
     }
 
