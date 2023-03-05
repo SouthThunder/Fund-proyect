@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<GridPane prefHeight="450.0" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.HelloController">
+<GridPane prefHeight="450.0" stylesheets="@stylesheets/main.css" prefWidth="800.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.HelloController">
    <columnConstraints>
       <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="40.0" />
       <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" percentWidth="60.0" />
@@ -23,7 +23,7 @@
       <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
-      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: #202C3F;" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+      <VBox alignment="CENTER" fx:id="main_box" prefHeight="200.0" prefWidth="100.0" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS" >
          <children>
             <ImageView fitHeight="150.0" fitWidth="317.0" pickOnBounds="true" preserveRatio="true">
                <image>
@@ -45,12 +45,12 @@
                   <Insets left="40.0" right="40.0" />
                </padding>
                <children>
-                  <Button fx:id="btnSingin" mnemonicParsing="false" onAction="#actionEvent" prefHeight="35.0" prefWidth="100.0" style="-fx-border-radius: 20px; -fx-background-radius: 20px; -fx-background-color: #48C5EE; -fx-border-color: none;" text="Sing In" textFill="WHITE">
+                  <Button fx:id="btnSingin" styleClass="main_btns" mnemonicParsing="false" onAction="#actionEvent" prefHeight="35.0" prefWidth="100.0" text="Sing In" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
                   </Button>
-                  <Button fx:id="btnSingup" mnemonicParsing="false" onMouseClicked="#onSingUpButtonClicked" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #48C5EE; -fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: none;" text="Sing Up" textFill="WHITE">
+                  <Button fx:id="btnSingup" styleClass="main_btns" mnemonicParsing="false" onMouseClicked="#onSingUpButtonClicked" prefHeight="35.0" prefWidth="100.0" text="Sing Up" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="10.0" />
                      </HBox.margin>
@@ -64,12 +64,12 @@
             <HBox minHeight="1.0" minWidth="1.0" prefHeight="25.0" prefWidth="200.0">
                <children>
                   <Separator prefHeight="5.0" prefWidth="17.0" visible="false" />
-                  <ImageView fitHeight="21.0" fitWidth="21.0" onMouseClicked="#onExitButtonClicked" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="21.0" fitWidth="21.0" onMouseClicked="#onExitButtonClicked" pickOnBounds="true" preserveRatio="true" fx:id="exit_img">
                      <HBox.margin>
                         <Insets left="275.0" top="50.0" />
                      </HBox.margin>
                      <image>
-                        <Image url="@images/icons8-salir-redondeado-100%202.0.png" />
+                        <Image  url="@images/icons8-salir-redondeado-100 2.0.png" />
                      </image>
                   </ImageView>
                </children>

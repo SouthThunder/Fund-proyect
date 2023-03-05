@@ -1,0 +1,24 @@
+.signupdataentry{
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-color: #202C3F;
+}
+
+#upload_data{
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: #202C3F;
+    -fx-background-color: #202C3F;
+}
+#upload_data:hover{
+    -fx-cursor: hand;
+}
+
+.signupactionbtns{
+    -fx-background-color: #202C3F;
+    -fx-background-radius: 20px;
+}
+
+.signupactionbtns:hover{
+    -fx-cursor: hand;
+}

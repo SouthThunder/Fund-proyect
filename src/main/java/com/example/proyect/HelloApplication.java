@@ -6,12 +6,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 
 public class HelloApplication extends Application {
 
@@ -41,7 +43,7 @@ public class HelloApplication extends Application {
 
         stage.initStyle(StageStyle.TRANSPARENT); // para que la barra superior sea transparente
         stage.setTitle("PYME WAVE");
-        //primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("images/icons8-formularios-de-google-96.png")));
+        stage.getIcons().add(new Image(getClass().getResourceAsStream("images/icons8-wave-96.png")));
         Scene scene = new Scene(root);
         scene.setFill(Color.TRANSPARENT); // para que la escena de fondo sea transparente
         stage.setScene(scene);
@@ -56,7 +58,7 @@ public class HelloApplication extends Application {
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws NoSuchAlgorithmException {
         launch();
     }
 }

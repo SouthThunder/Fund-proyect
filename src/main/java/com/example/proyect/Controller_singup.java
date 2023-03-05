@@ -167,20 +167,6 @@ public class Controller_singup implements Initializable {
 
     }
 
-    public void activeFormPerna(Event event){
-
-        if(checkPerna.isSelected() == true){
-
-            // se gestiona la visibilidad del formulario
-            checkEmpre.setSelected(false);
-            anchPaneEmp.setVisible(false);
-            anchPaneEmp.setManaged(false);
-            anchPanePerna.setVisible(true);
-            anchPanePerna.setManaged(true);
-        }
-
-    }
-
 
     public void restrictionSpacesFormEmp(){
         txtPassword.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
@@ -282,5 +268,28 @@ public class Controller_singup implements Initializable {
         });
 
     }
+
+    public void activeFormPerna(Event event){
+
+        if(checkPerna.isSelected() == true){
+
+            // se gestiona la visibilidad del formulario
+            checkEmpre.setSelected(false);
+            anchPaneEmp.setVisible(false);
+            anchPaneEmp.setManaged(false);
+            anchPanePerna.setVisible(true);
+            anchPanePerna.setManaged(true);
+        }
+
+    }
+
+    public void onSignUpbtnclick(){
+        if((txtPassword.getText()).compareTo(txtConfirmPassword.getText())==0)
+            System.out.println("idk");
+
+
+
+    }
+
 
 }

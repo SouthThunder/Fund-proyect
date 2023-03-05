@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="panelFormularioSingup" alignment="CENTER" prefHeight="474.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.Controller_singup">
+<VBox fx:id="panelFormularioSingup" stylesheets="@stylesheets/Signup.css" alignment="CENTER" prefHeight="474.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.Controller_singup">
    <children>
       <Separator orientation="VERTICAL" prefWidth="6.0" visible="false" />
       <Label text="Formulario de Registro">
@@ -41,7 +41,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtEmailSingup" prefHeight="30.0" promptText="Ejem: juanito12@hola.com" style="-fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: #202C3F;">
+                  <TextField fx:id="txtEmailSingup" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: juanito12@hola.com" >
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -51,13 +51,13 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtNumeroSingup" prefHeight="30.0" promptText="Ejem: 3126770923" style="-fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: #202C3F;">
+                  <TextField fx:id="txtNumeroSingup" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 3126770923">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
                   <Label text="Nombre de Usuario" />
-                  <TextField fx:id="txtUserName" prefHeight="30.0" promptText="Empresa01" style="-fx-border-radius: 20px; -fx-background-radius: 20px; -fx-border-color: #202C3F;">
+                  <TextField fx:id="txtUserName" styleClass="signupdataentry" prefHeight="30.0" promptText="Empresa01" >
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -70,7 +70,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Numero de Regitro Unico Tributario (RUT))" />
-                              <TextField fx:id="txtNumeroID" prefHeight="30.0" promptText="Ejem: 12345-3" style="-fx-border-color: #202C3F; -fx-background-radius: 20px; -fx-border-radius: 20px;">
+                              <TextField fx:id="txtNumeroID" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 12345-3">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -83,7 +83,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Documento  de verificación" />
-                              <Button alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="115.0" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #202C3F; -fx-background-color: #202C3F;" text="Subir" textAlignment="CENTER" textFill="WHITE" />
+                              <Button alignment="CENTER" fx:id="upload_data" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="115.0" text="Subir" textAlignment="CENTER" textFill="WHITE" />
                            </children>
                         </VBox>
                      </children>
@@ -96,7 +96,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Contraseña" />
-                              <TextField fx:id="txtPassword" prefHeight="30.0" promptText="Ejem: 12345" style="-fx-background-radius: 20px; -fx-border-radius: 20px; -fx-border-color: #202C3F;">
+                              <TextField fx:id="txtPassword" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 12345">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -109,7 +109,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Confirmar Contraseña" />
-                              <TextField fx:id="txtConfirmPassword" prefHeight="30.0" promptText="Ejem: 12345" style="-fx-border-color: #202C3F; -fx-border-radius: 20px; -fx-background-radius: 20px;">
+                              <TextField fx:id="txtConfirmPassword" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 12345">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -126,12 +126,12 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="btnSingUp" mnemonicParsing="false" onAction="#registerEmp" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #202C3F; -fx-background-radius: 20px;" text="Registrar" textFill="WHITE">
+                        <Button fx:id="btnSingUp" styleClass="signupactionbtns" mnemonicParsing="false" onAction="#registerEmp" prefHeight="35.0" prefWidth="100.0" text="Registrar" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnCleanSingUp" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #202C3F; -fx-background-radius: 20px;" text="Limpiar" textFill="WHITE">
+                        <Button fx:id="btnCleanSingUp" styleClass="signupactionbtns" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Limpiar" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
@@ -154,7 +154,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtEmailSingupPerNa" prefHeight="30.0" promptText="Ejem: juanito12@gmail.com" style="-fx-border-color: #202C3F; -fx-background-radius: 20px; -fx-border-radius: 20px;">
+                  <TextField fx:id="txtEmailSingupPerNa" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: juanito12@gmail.com">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -164,7 +164,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtNumeroSingupPerna" prefHeight="30.0" promptText="Ejem: 3126770923" style="-fx-border-color: #202C3F; -fx-border-radius: 20px; -fx-background-radius: 20px;">
+                  <TextField fx:id="txtNumeroSingupPerna" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 3126770923">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -174,7 +174,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtUserNamePerna" prefHeight="30.0" promptText="Ejem: juanito_12" style="-fx-border-color: #202C3F; -fx-background-radius: 20px; -fx-border-radius: 20px;">
+                  <TextField fx:id="txtUserNamePerna" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: juanito_12">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -187,7 +187,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Contraseña" />
-                              <TextField fx:id="txtPasswordPerna" prefHeight="30.0" promptText="Ejem: 12345" style="-fx-border-color: #202C3F; -fx-background-radius: 20px; -fx-border-radius: 20px;">
+                              <TextField fx:id="txtPasswordPerna" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 12345">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -200,7 +200,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Confirmar Contraseña" />
-                              <TextField fx:id="txtConfirmPasswordPerna" prefHeight="30.0" promptText="Ejem: 12345" style="-fx-border-color: #202C3F; -fx-border-radius: 20px; -fx-background-radius: 20px;">
+                              <TextField fx:id="txtConfirmPasswordPerna" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 12345">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -217,12 +217,12 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="btnSingUpPerna" mnemonicParsing="false" onAction="#registerPerna" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #202C3F; -fx-background-radius: 20px;" text="Registrar" textFill="WHITE">
+                        <Button fx:id="btnSingUpPerna" styleClass="signupactionbtns" mnemonicParsing="false" onAction="#registerPerna" prefHeight="35.0" prefWidth="100.0" text="Registrar" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnCleanSingUpPerna" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" style="-fx-background-color: #202C3F; -fx-background-radius: 20px;" text="Limpiar" textFill="WHITE">
+                        <Button fx:id="btnCleanSingUpPerna" styleClass="signupactionbtns" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Limpiar" textFill="WHITE">
                            <HBox.margin>
                               <Insets left="10.0" />
                            </HBox.margin>
