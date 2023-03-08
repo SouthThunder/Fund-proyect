@@ -11,6 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
 
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 public class Controller_singup implements Initializable {
@@ -83,7 +84,7 @@ public class Controller_singup implements Initializable {
 
 
 
-    public void registerEmp(){
+    public void registerEmp() throws NoSuchAlgorithmException {
 
         textFieldEmptyEmp();
 
@@ -100,7 +101,7 @@ public class Controller_singup implements Initializable {
 
 
 
-    public void textFieldEmptyEmp(){ // metodo para verificar que ningun Textfield quede vacio
+    public void textFieldEmptyEmp() throws NoSuchAlgorithmException { // metodo para verificar que ningun Textfield quede vacio
                                      // si este llega a estar vacio sale la advertencia
 
         boolean llen  = false;
@@ -140,7 +141,7 @@ public class Controller_singup implements Initializable {
 
     }
 
-    public void equalPasswordsEmp(){ // la funcion de igualdad de contraseñas revisa si está la contraseña y la verificaion de esta iguales
+    public void equalPasswordsEmp() throws NoSuchAlgorithmException { // la funcion de igualdad de contraseñas revisa si está la contraseña y la verificaion de esta iguales
 
         String pas = txtPassword.getText();
         String con = txtConfirmPassword.getText();
@@ -150,6 +151,8 @@ public class Controller_singup implements Initializable {
 
         if(pas.equals(con)){
             state = true;
+            Encrypt hashing= new Encrypt();
+            System.out.println(Encrypt.hashString(pas));
         } else if(!pas.equals(con)){
             state = false;
         }
