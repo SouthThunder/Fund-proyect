@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="panelFormularioSingin" alignment="CENTER" prefHeight="411.0" prefWidth="482.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.Controller_singin" stylesheets="@stylesheets/Signin.css">
+<VBox fx:id="panelFormularioSingin" alignment="CENTER" prefHeight="411.0" prefWidth="482.0" stylesheets="@stylesheets/Signin.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.Controller_singin">
    <children>
       <Label text="Iniciar Sesion">
          <font>
@@ -34,7 +34,7 @@
                   <Insets top="10.0" />
                </VBox.margin>
             </Label>
-            <TextField fx:id="txtUsuarioSingin" styleClass="signindataentry" prefHeight="37.0" promptText="Ejem: Pepito@hola.com">
+            <TextField fx:id="txtUsuarioSingin" prefHeight="37.0" promptText="Ejem: Pepito@hola.com" styleClass="signindataentry">
                <font>
                   <Font size="14.0" />
                </font>
@@ -49,12 +49,12 @@
             </Label>
             <StackPane>
                <children>
-                  <PasswordField fx:id="txtpasswordSingin" styleClass="signindataentry" prefHeight="37.0" promptText="Ejem: 12345">
+                  <PasswordField fx:id="txtpasswordSingin" prefHeight="37.0" promptText="Ejem: 12345" styleClass="signindataentry">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </PasswordField>
-                  <TextField fx:id="txtpasswordSinginMask" styleClass="signindataentry" prefHeight="37.0" promptText="Ejem: 12345" visible="false">
+                  <TextField fx:id="txtpasswordSinginMask" prefHeight="37.0" promptText="Ejem: 12345" styleClass="signindataentry" visible="false">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -75,18 +75,10 @@
                </VBox.margin>
                <children>
 
-                  <Button fx:id="btnSingin" styleClass="signinactionbtns" mnemonicParsing="false" onAction="#sinIngUser" prefHeight="35.0" prefWidth="100.0" text="Ingresar" textFill="WHITE">
+                  <Button fx:id="btnSingin" mnemonicParsing="false" onAction="#sinIngUser" prefHeight="35.0" prefWidth="100.0" styleClass="signinactionbtns" text="Ingresar" textFill="WHITE">
                      <font>
                         <Font name="System Bold" size="14.0" />
                      </font>
-                  </Button>
-                  <Button fx:id="btnClean" styleClass="signinactionbtns" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Limpiar" textFill="WHITE">
-                     <font>
-                        <Font name="System Bold" size="14.0" />
-                     </font>
-                     <HBox.margin>
-                        <Insets left="10.0" />
-                     </HBox.margin>
                   </Button>
                </children>
             </HBox>
