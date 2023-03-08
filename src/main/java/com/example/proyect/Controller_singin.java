@@ -29,8 +29,6 @@ public class Controller_singin extends Encrypt implements Initializable {
     private CheckBox checkViewpasswordSingin;
     @FXML
     private Button btnSingin;
-    @FXML
-    private Button btnClean;
 
 
 

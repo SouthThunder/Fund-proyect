@@ -43,8 +43,7 @@ public class Controller_singup implements Initializable {
 
     @FXML
     private Button btnSingUp;
-    @FXML
-    private Button btnCleanSingUp;
+
 
 
     // atributos para formulario persona natural
@@ -63,8 +62,7 @@ public class Controller_singup implements Initializable {
     private TextField txtConfirmPasswordPerna;
     @FXML
     private Button btnSingUpPerna;
-    @FXML
-    private Button btnCleanSingUpPerna;
+
 
 
 
@@ -99,8 +97,14 @@ public class Controller_singup implements Initializable {
 
 
 
+
+
+
     public void textFieldEmptyEmp(){ // metodo para verificar que ningun Textfield quede vacio
                                      // si este llega a estar vacio sale la advertencia
+
+        boolean llen  = false;
+        boolean equals;
 
         if(txtEmailSingup.getText().isEmpty() ||
             txtPassword.getText().isEmpty() ||
@@ -121,7 +125,52 @@ public class Controller_singup implements Initializable {
 
             // Mostrar la ventana emergente y esperar a que se cierre
             alert.showAndWait();
+
+            llen = false;
+        }else {
+            llen = true;
         }
+
+        if (llen == true){ // llama a la funcion de igualdad de contraseñas, pero primero pregunta si estan llenos los espacios
+            equalPasswordsEmp();
+        }
+
+
+        passwordValidationEmp(); // funcion para validar las especificaciones de la contraseña (tamaño y caracteres válidos y necesarios)
+
+    }
+
+    public void equalPasswordsEmp(){ // la funcion de igualdad de contraseñas revisa si está la contraseña y la verificaion de esta iguales
+
+        String pas = txtPassword.getText();
+        String con = txtConfirmPassword.getText();
+        boolean state = false;
+
+
+
+        if(pas.equals(con)){
+            state = true;
+        } else if(!pas.equals(con)){
+            state = false;
+        }
+
+        if (state == false ){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Las contraseñas no coinciden");
+            alert.setHeaderText("Por favor asegúrese de que las contraseñas sean iguales");
+
+            // Mostrar la ventana emergente y esperar a que se cierre
+            alert.showAndWait();
+        }
+
+
+    }
+
+    public void passwordValidationEmp(){
+
+        int numdig = txtPassword.getLength();
+
+
 
     }
 

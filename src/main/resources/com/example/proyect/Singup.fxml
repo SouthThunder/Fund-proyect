@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
@@ -11,12 +10,10 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.shape.Box?>
-<?import javafx.scene.layout.Pane?>
-<VBox fx:id="panelFormularioSingup" stylesheets="@stylesheets/Signup.css" alignment="CENTER" prefHeight="474.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.Controller_singup">
+<VBox fx:id="panelFormularioSingup" alignment="CENTER" prefHeight="474.0" prefWidth="700.0" stylesheets="@stylesheets/Signup.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.Controller_singup">
    <children>
       <Separator orientation="VERTICAL" prefWidth="6.0" visible="false" />
-         <VBox translateY="-10" translateX="0" maxHeight="62" fx:id="backtitle">
+         <VBox fx:id="backtitle" maxHeight="62" translateX="0" translateY="-10">
             <Label text="Formulario de Registro">
                <font>
                   <Font name="System Bold" size="30.0" />
@@ -24,15 +21,15 @@
             </Label>
          </VBox>
       <Separator orientation="VERTICAL" prefWidth="29.0" visible="false" />
-      <HBox prefHeight="16.0" prefWidth="700.0" fx:id="testid">
+      <HBox fx:id="testid" prefHeight="16.0" prefWidth="700.0">
          <VBox.margin>
-         <Insets top="-15"/>
+         <Insets top="-15" />
          </VBox.margin>
          <children>
             <Separator prefWidth="200.0" visible="false" />
-            <Button styleClass="changeviewbtns" fx:id="checkEmpre" mnemonicParsing="false" onAction="#activeFormEm"  minWidth="200" text="Empresa" > </Button>
+            <Button fx:id="checkEmpre" minWidth="200" mnemonicParsing="false" onAction="#activeFormEm" styleClass="changeviewbtns" text="Empresa"> </Button>
             <Separator prefWidth="200.0" visible="false" />
-            <Button styleClass="changeviewbtns" fx:id="checkPerna" mnemonicParsing="false" onAction="#activeFormPerna" minWidth="200" text="Persona natural" />
+            <Button fx:id="checkPerna" minWidth="200" mnemonicParsing="false" onAction="#activeFormPerna" styleClass="changeviewbtns" text="Persona natural" />
             <Separator prefWidth="200.0" visible="false" />
          </children>
       </HBox>
@@ -48,7 +45,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtEmailSingup" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: juanito12@hola.com" >
+                  <TextField fx:id="txtEmailSingup" prefHeight="30.0" promptText="Ejem: juanito12@hola.com" styleClass="signupdataentry">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -58,13 +55,13 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtNumeroSingup" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 3126770923">
+                  <TextField fx:id="txtNumeroSingup" prefHeight="30.0" promptText="Ejem: 3126770923" styleClass="signupdataentry">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
                   <Label text="Nombre de Usuario" />
-                  <TextField fx:id="txtUserName" styleClass="signupdataentry" prefHeight="30.0" promptText="Empresa01" >
+                  <TextField fx:id="txtUserName" prefHeight="30.0" promptText="Empresa01" styleClass="signupdataentry">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -77,7 +74,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Numero de Regitro Unico Tributario (RUT))" />
-                              <TextField fx:id="txtNumeroID" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 12345-3">
+                              <TextField fx:id="txtNumeroID" prefHeight="30.0" promptText="Ejem: 12345-3" styleClass="signupdataentry">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -90,7 +87,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Documento  de verificación" />
-                              <Button alignment="CENTER" fx:id="upload_data" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="115.0" text="Subir" textAlignment="CENTER" textFill="WHITE" />
+                              <Button fx:id="upload_data" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="115.0" text="Subir" textAlignment="CENTER" textFill="WHITE" />
                            </children>
                         </VBox>
                      </children>
@@ -103,7 +100,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Contraseña" />
-                              <TextField fx:id="txtPassword" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 12345">
+                              <TextField fx:id="txtPassword" prefHeight="30.0" promptText="Ejem: 12345" styleClass="signupdataentry">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -116,7 +113,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Confirmar Contraseña" />
-                              <TextField fx:id="txtConfirmPassword" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 12345">
+                              <TextField fx:id="txtConfirmPassword" prefHeight="30.0" promptText="Ejem: 12345" styleClass="signupdataentry">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -133,15 +130,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="btnSingUp" styleClass="signupactionbtns" mnemonicParsing="false" onAction="#registerEmp" prefHeight="35.0" prefWidth="100.0" text="Registrar" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnCleanSingUp" styleClass="signupactionbtns" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Limpiar" textFill="WHITE">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
+                        <Button fx:id="btnSingUp" mnemonicParsing="false" onAction="#registerEmp" prefHeight="35.0" prefWidth="100.0" styleClass="signupactionbtns" text="Registrar" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -161,7 +150,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtEmailSingupPerNa" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: juanito12@gmail.com">
+                  <TextField fx:id="txtEmailSingupPerNa" prefHeight="30.0" promptText="Ejem: juanito12@gmail.com" styleClass="signupdataentry">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -171,7 +160,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtNumeroSingupPerna" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 3126770923">
+                  <TextField fx:id="txtNumeroSingupPerna" prefHeight="30.0" promptText="Ejem: 3126770923" styleClass="signupdataentry">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -181,7 +170,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <TextField fx:id="txtUserNamePerna" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: juanito_12">
+                  <TextField fx:id="txtUserNamePerna" prefHeight="30.0" promptText="Ejem: juanito_12" styleClass="signupdataentry">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -194,7 +183,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Contraseña" />
-                              <TextField fx:id="txtPasswordPerna" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 12345">
+                              <TextField fx:id="txtPasswordPerna" prefHeight="30.0" promptText="Ejem: 12345" styleClass="signupdataentry">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -207,7 +196,7 @@
                            </HBox.margin>
                            <children>
                               <Label text="Confirmar Contraseña" />
-                              <TextField fx:id="txtConfirmPasswordPerna" styleClass="signupdataentry" prefHeight="30.0" promptText="Ejem: 12345">
+                              <TextField fx:id="txtConfirmPasswordPerna" prefHeight="30.0" promptText="Ejem: 12345" styleClass="signupdataentry">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -224,15 +213,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="btnSingUpPerna" styleClass="signupactionbtns" mnemonicParsing="false" onAction="#registerPerna" prefHeight="35.0" prefWidth="100.0" text="Registrar" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnCleanSingUpPerna" styleClass="signupactionbtns" mnemonicParsing="false" prefHeight="35.0" prefWidth="100.0" text="Limpiar" textFill="WHITE">
-                           <HBox.margin>
-                              <Insets left="10.0" />
-                           </HBox.margin>
+                        <Button fx:id="btnSingUpPerna" mnemonicParsing="false" onAction="#registerPerna" prefHeight="35.0" prefWidth="100.0" styleClass="signupactionbtns" text="Registrar" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
