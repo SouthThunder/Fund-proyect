@@ -2,15 +2,22 @@ package com.example.proyect.model.dto;
 
 import java.util.Objects;
 
-public class User {
+public abstract class User {
     private String user;
     private String password;
     private String email;
     private String phone;
 
-    public User(){
+    public User(String user, String password, String email, String phone){
         this.user=user;
         this.password=password;
+        this.email=email;
+        this.phone=phone;
+    }
+
+    public User(String user, String email) {
+        this.user=user;
+        this.email=email;
     }
 
     public String getUser() {

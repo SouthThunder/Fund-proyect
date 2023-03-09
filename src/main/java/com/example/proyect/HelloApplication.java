@@ -14,7 +14,6 @@ import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
-
 public class HelloApplication extends Application {
 
     private double xOffset = 0.0;

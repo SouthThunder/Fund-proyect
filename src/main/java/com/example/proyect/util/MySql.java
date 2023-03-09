@@ -19,9 +19,9 @@ public class MySql {
 
     public void conectar(){
         try{
-            System.out.println(URL);
+            //System.out.println(URL);
             this.connection= DriverManager.getConnection(URL,user,pass);
-            System.out.println("Conexion exitosa");
+            //System.out.println("Conexion exitosa");
         } catch (SQLException ex) {
             System.out.println("No se conecto");
             System.out.println("SQLException: " + ex.getMessage());

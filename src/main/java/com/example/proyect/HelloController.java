@@ -1,5 +1,6 @@
 package com.example.proyect;
 
+import com.example.proyect.util.MySql;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -38,8 +39,12 @@ public class HelloController implements Initializable {
 
     private VBox singInForm;
     private VBox singUpForm;
+    private MySql mySql= new MySql();
 
 
+    public HelloController(){
+        this.mySql.conectar();
+    }
 
 
     //metodos
@@ -92,10 +97,9 @@ public class HelloController implements Initializable {
 
     }
 
-
-
-    public void onExitButtonClicked(MouseEvent event){ // evento que al darle click se salga del promgrama
+    public void onExitButtonClicked(){ // evento que al darle click se salga del promgrama
         // este metodo esta implementado  a la imagen de salida, para que cuando se le de click se salga del programa
+        mySql.desconectar();
         Platform.exit();
         System.exit(0);
     }

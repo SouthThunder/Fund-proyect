@@ -1,20 +1,26 @@
 package com.example.proyect;
 
 
+import com.example.proyect.model.dao.NaturalDAO;
+import com.example.proyect.model.dao.impl.NaturalDAOImpl;
+import com.example.proyect.model.dto.NaturalDTO;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.StageStyle;
 
 import java.net.URL;
+import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
 public class Controller_singup implements Initializable {
-
+    private Encrypt hash= new Encrypt();
 
     // atributos para cambiar entre formularios
 
@@ -125,28 +131,31 @@ public class Controller_singup implements Initializable {
 
     }
 
+    public Boolean checkDataEntry(){
+        if(txtEmailSingupPerNa.getText().isEmpty() ||
+                txtPasswordPerna.getText().isEmpty() ||
+                txtUserNamePerna.getText().isEmpty() ||
+                txtNumeroSingupPerna.getText().isEmpty() ||
+                txtConfirmPasswordPerna.getText().isEmpty()) {
+            return true; //retorno true cuando algo esta empty
+        }else{
+            return false;
+        }
+    }
+
     public void textFieldEmptyPerna(){ // metodo para verificar que ningun Textfield quede vacio
                                      // si este llega a estar vacio sale la advertencia
+            if(checkDataEntry()){
+                // Crear una ventana emergente de advertencia
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Espacios vacios");
+                //alert.initStyle(StageStyle.TRANSPARENT);
+                alert.setHeaderText("Por favor asegúrese de que todos los espacios estén llenos");
+                //alert.setContentText("Por favor, tenga cuidado al realizar esta acción.");
 
-        if(txtEmailSingupPerNa.getText().isEmpty() ||
-            txtPasswordPerna.getText().isEmpty() ||
-            txtUserNamePerna.getText().isEmpty() ||
-            txtNumeroSingupPerna.getText().isEmpty() ||
-            txtConfirmPasswordPerna.getText().isEmpty()){
-
-
-            //System.out.println("Mi rey tienes que llenar todos los espacios");
-
-            // Crear una ventana emergente de advertencia
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Espacios vacios");
-            //alert.initStyle(StageStyle.TRANSPARENT);
-            alert.setHeaderText("Por favor asegúrese de que todos los espacios estén llenos");
-            //alert.setContentText("Por favor, tenga cuidado al realizar esta acción.");
-
-            // Mostrar la ventana emergente y esperar a que se cierre
-            alert.showAndWait();
-        }
+                // Mostrar la ventana emergente y esperar a que se cierre
+                alert.showAndWait();
+            }
 
     }
 
@@ -274,13 +283,31 @@ public class Controller_singup implements Initializable {
 
     }
 
-    public void onSignUpbtnclick(){
-        if((txtPassword.getText()).compareTo(txtConfirmPassword.getText())==0)
-            System.out.println("idk");
+    public Boolean passwordVerification(){
+        if((txtPassword.getText()).compareTo(txtConfirmPassword.getText())==0){
+            return true;
+        }
+        return false;
+    }
 
-
-
+    public void register() throws NoSuchAlgorithmException, SQLException {
+        if(!checkDataEntry()){
+            if(passwordVerification()){
+                NaturalDTO ndto= new NaturalDTO(txtUserNamePerna.getText(),hash.hashString(txtPasswordPerna.getText()),txtEmailSingupPerNa.getText(),txtNumeroSingupPerna.getText());
+                NaturalDAO ndao=new NaturalDAOImpl();
+                Boolean checkuser=ndao.encontrar_G(ndto);
+                if(checkuser)
+                    System.out.println("User Already in use");
+                else{
+                    ndao.create(ndto);
+                    System.out.println("Success");
+                }
+            }
+        }
     }
 
 
+    public void delete_account() throws SQLException{
+
+    }
 }
