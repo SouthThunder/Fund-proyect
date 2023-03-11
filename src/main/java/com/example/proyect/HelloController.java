@@ -1,5 +1,6 @@
 package com.example.proyect;
 
+import com.example.proyect.util.MySql;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -34,18 +35,73 @@ public class HelloController implements Initializable {
     private Button btnSingup;
     @FXML
     private StackPane containerForm;
-    @FXML
-    private ImageView img_ola;
+
 
     private VBox singInForm;
     private VBox singUpForm;
+    private MySql mySql= new MySql();
 
-    
+
+    public HelloController(){
+        this.mySql.conectar();
+    }
+
+
+    //metodos
+    @FXML
+    public void actionEvent(ActionEvent event){
+
+        Object evt = event.getSource();
+
+        if(evt.equals(btnSingin)){    //condicional para saber que elemnto se acciono
+
+            singInForm.setVisible(true);
+            singUpForm.setVisible(false);
+
+        } else if (evt.equals(btnSingup)) {
+            singInForm.setVisible(false);
+            singUpForm.setVisible(true);
+        }
+
+    }
+
+    public void onSingUpButtonClicked(MouseEvent event){
+
+        singInForm.setVisible(false);
+        singUpForm.setVisible(true);
+
+
+
+
+    }
+
+
+    // merodo para obtener las escenas VBox
+    private VBox loadForm(String url) throws IOException{
+
+        return (VBox) FXMLLoader.load(getClass().getResource(url));
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        try {
+            singInForm = loadForm("Singin.fxml");
+            singUpForm = loadForm("Singup.fxml");
+            containerForm.getChildren().addAll(singInForm,singUpForm);
+            singInForm.setVisible(true);
+            singUpForm.setVisible(false);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
 
+    }
+
+    public void onExitButtonClicked(){ // evento que al darle click se salga del promgrama
+        // este metodo esta implementado  a la imagen de salida, para que cuando se le de click se salga del programa
+        mySql.desconectar();   //esta funcion genera error por lo que no se puede conectar a la base de datos
+        Platform.exit();
+        System.exit(0);
     }
 
 

@@ -1,0 +1,20 @@
+#main_box{
+    -fx-background-color: #202C3F;
+}
+
+.main_btns{
+    -fx-background-color: #48C5EE;
+    -fx-border-radius: 20px;
+    -fx-background-radius: 20px;
+    -fx-border-color: none;
+}
+
+.main_btns:hover{
+    -fx-cursor: hand;
+    -fx-border-width: 2px;
+    -fx-border-color: white;
+}
+
+#exit_img:hover{
+    -fx-cursor: hand;
+}
