@@ -16,15 +16,27 @@ import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 public class HelloApplication extends Application {
 
+
+    // variables para el control de la posicion
     private double xOffset = 0.0;
     private double yOffset = 0.0;
 
+
+        /*
+        |
+        |
+        |
+        |
+       \*/
+
+
+    // Metodo start
     @Override
-    public void start(Stage stage) throws Exception {
+    public void start(Stage stage) throws Exception { // esta funcion llama al satage principal e inicia el programa
 
         Parent root = FXMLLoader.load(getClass().getResource("hello-view.fxml"));
 
-        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+        root.setOnMousePressed(new EventHandler<MouseEvent>() { // esto es para que la pantalla se reposiciones cuando se esta moviento con el mause
             @Override
             public void handle(MouseEvent event) {
                 xOffset = event.getSceneX();
@@ -32,7 +44,7 @@ public class HelloApplication extends Application {
             }
         });
 
-        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+        root.setOnMouseDragged(new EventHandler<MouseEvent>() { // esta es para que cuando suelte la pantalla se reposicione
             @Override
             public void handle(MouseEvent event) {
                 stage.setX(event.getScreenX() - xOffset);

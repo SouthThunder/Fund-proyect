@@ -36,20 +36,28 @@ public class HelloController implements Initializable {
     @FXML
     private StackPane containerForm;
 
-
+   //definicon de atributos, los cuales no estan dentro del fxml
     private VBox singInForm;
     private VBox singUpForm;
     private MySql mySql= new MySql();
 
 
-    public HelloController(){
+    public HelloController(){ // coneccion a la base de datos
         this.mySql.conectar();
     }
 
 
-    //metodos
+        /*
+        |
+        |
+        |
+        |
+       \*/
+
+
+    //cambio de estado (singIN, singUp)
     @FXML
-    public void actionEvent(ActionEvent event){
+    public void actionEvent(ActionEvent event){ // cambia al estado sinIn
 
         Object evt = event.getSource();
 
@@ -65,23 +73,30 @@ public class HelloController implements Initializable {
 
     }
 
-    public void onSingUpButtonClicked(MouseEvent event){
+    public void onSingUpButtonClicked(MouseEvent event){ // cambio de estado a singup
 
         singInForm.setVisible(false);
         singUpForm.setVisible(true);
 
-
-
-
     }
 
 
-    // merodo para obtener las escenas VBox
+    // metodo para obtener las escenas VBox
     private VBox loadForm(String url) throws IOException{
 
         return (VBox) FXMLLoader.load(getClass().getResource(url));
     }
 
+
+        /*
+        |
+        |
+        |
+        |
+       \*/
+
+
+    // Metodo inicializador
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -97,6 +112,16 @@ public class HelloController implements Initializable {
 
     }
 
+
+        /*
+        |
+        |
+        |
+        |
+       \*/
+
+
+    // salida de programa
     public void onExitButtonClicked(){ // evento que al darle click se salga del promgrama
         // este metodo esta implementado  a la imagen de salida, para que cuando se le de click se salga del programa
         mySql.desconectar();   //esta funcion genera error por lo que no se puede conectar a la base de datos

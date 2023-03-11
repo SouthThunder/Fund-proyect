@@ -239,7 +239,6 @@ public class Controller_singup implements Initializable {
 
     public void textFieldEmptyPerna(){ // metodo para verificar que ningun Textfield quede vacio
                                        // si este llega a estar vacio sale la advertencia
-
         boolean llen  = false;
         boolean equals = false;
 
@@ -248,17 +247,93 @@ public class Controller_singup implements Initializable {
                 txtUserNamePerna.getText().isEmpty() ||
                 txtNumeroSingupPerna.getText().isEmpty() ||
                 txtConfirmPasswordPerna.getText().isEmpty()){
-            // Crear una ventana emergente de advertencia
+
+
+            // Crea una ventana emergente de advertencia
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Espacios vacios");
-            //alert.initStyle(StageStyle.TRANSPARENT);
             alert.setHeaderText("Por favor asegúrese de que todos los espacios estén llenos");
-            //alert.setContentText("Por favor, tenga cuidado al realizar esta acción.");
+
+            // Muestra la ventana emergente y espera hasta que se cierre
+            alert.showAndWait();
+
+            llen = false;
+        }else {
+            llen = true;
+        }
+
+        if (llen == true){// llama a la funcion de igualdad de contraseñas, pero primero pregunta si estan llenos los espacios
+
+            if (equalPasswordsPerna() == true){ // pregunta si se lanzo la advertencia de contraseñas iguales
+                equals = false;               // si la saco no puede continuar con la validacion de contraseña
+            }
+            else {
+                equals = true;
+            }
+        }
+
+        if (equals == true){ // pregunta si la advertencia de que las contraseñas son iguales, si no la lanzo significa que puede empezar
+            // con la validacion de la contraseña y lanzar sus respectivas advertencias
+            passwordValidationPerna(); // funcion para validar las especificaciones de la contraseña (tamaño, caracteres válidos y necesarios) y autorizar el registro de datos a la base de datos
+        }
+    }
+
+    public boolean equalPasswordsPerna(){ // esta funcion revisa que las contraseñas sean iguales, si no es asi envia la advertencia
+
+        String pas = txtPasswordPerna.getText();
+        String con = txtConfirmPasswordPerna.getText();
+        boolean state = false;
+
+        if(pas.equals(con)){
+            state = true;
+        } else if(!pas.equals(con)){
+            state = false;
+        }
+
+        if (state == false ){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Las contraseñas no coinciden");
+            alert.setHeaderText("Por favor asegúrese de que las contraseñas sean iguales");
 
             // Mostrar la ventana emergente y esperar a que se cierre
             alert.showAndWait();
+            return true;
         }
 
+        return false;
+    }
+
+    public void passwordValidationPerna() { // esta funcion verifica el tamaño y la composicion de la contraseña
+
+        int numdig = txtPasswordPerna.getLength();
+        String contra = txtPasswordPerna.getText();
+        registrationAuthorization = false;
+
+        if (numdig < 8){ // verificacion de que tenga más de 8 digitos la contraseña
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Las contraseña tiene menos de ocho digitos");
+            alert.setHeaderText("Por favor asegúrese de que la contraseña cuente con mas de ocho digitos");
+
+            // Mostrar la ventana emergente y esperar a que se cierre
+            alert.showAndWait();
+
+        }else if (numdig >= 8){ // si la contraseña cuenta con 8 o mas caracteres puesde hacer la validacion de caracteres
+
+            var regex ="^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=-_!~|?,.<>/*()]).+$"; // la exprecion regular indica las condiciones de validacion
+
+            Pattern pattern = Pattern.compile(regex);
+
+            if (pattern.matches(regex,contra) == false){ // revisa si las contraseñas no cumplen con la condicion de caracteres
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("La contraseña no cumple con los requisitos minimos");
+                alert.setHeaderText("Recuerde que la contraseña debe de contar con almenos una mayuscula, minuscula, numero y simbolo ");
+
+                // Mostrar la ventana emergente y esperar a que se cierre
+                alert.showAndWait();
+            }else{
+                registrationAuthorization = true;
+            }
+        }
     }
 
 
@@ -275,17 +350,25 @@ public class Controller_singup implements Initializable {
     public void registerFormEmp() throws NoSuchAlgorithmException, SQLException { // funcion hace el hash de contraseñas, envio datos, y la verificacion de usuario
 
         if (registrationAuthorization == true){
-            System.out.println("Hola mor");
-        }
+            NaturalDTO ndto= new NaturalDTO(txtUserName.getText(),hash.hashString(txtPassword.getText()),txtEmailSingup.getText(),txtNumeroSingup.getText()); // cambiar a empresa dto
+            NaturalDAO ndao=new NaturalDAOImpl();
+            Boolean checkuser=ndao.encontrar_G(ndto);
+            if(checkuser) {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Usuario en existencia");
+                alert.setHeaderText("Trate de registrarse con un nombre de usuario distinto");
 
-        NaturalDTO ndto= new NaturalDTO(txtUserNamePerna.getText(),hash.hashString(txtPasswordPerna.getText()),txtEmailSingupPerNa.getText(),txtNumeroSingupPerna.getText());
-        NaturalDAO ndao=new NaturalDAOImpl();
-        Boolean checkuser=ndao.encontrar_G(ndto);
-        if(checkuser)
-            System.out.println("User Already in use");
-        else{
-            ndao.create(ndto);
-            System.out.println("Success");
+                // Mostrar la ventana emergente y esperar a que se cierre
+                alert.showAndWait();
+            }else{
+                ndao.create(ndto);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Creacion de cunta exitosa");
+                alert.setHeaderText("Su cuenta ha sido registrada con exito");
+
+                // Mostrar la ventana emergente y esperar a que se cierre
+                alert.showAndWait();
+            }
         }
     }
 
@@ -303,18 +386,27 @@ public class Controller_singup implements Initializable {
     public void registerFormPerna() throws NoSuchAlgorithmException, SQLException { // funcion hace el hash de contraseñas, envio datos, y la verificacion de usuario
 
         if (registrationAuthorization == true){
+            NaturalDTO ndto= new NaturalDTO(txtUserNamePerna.getText(),hash.hashString(txtPasswordPerna.getText()),txtEmailSingupPerNa.getText(),txtNumeroSingupPerna.getText());
+            NaturalDAO ndao=new NaturalDAOImpl();
+            Boolean checkuser=ndao.encontrar_G(ndto);
+            if(checkuser){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Usuario en existencia");
+                alert.setHeaderText("Trate de registrarse con un nombre de usuario distinto");
 
+                // Mostrar la ventana emergente y esperar a que se cierre
+                alert.showAndWait();
+            }
+            else{
+                ndao.create(ndto);
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Creacion de cunta exitosa");
+                alert.setHeaderText("Su cuenta ha sido registrada con exito");
+
+                // Mostrar la ventana emergente y esperar a que se cierre
+                alert.showAndWait();
+            }
         }
-
-                NaturalDTO ndto= new NaturalDTO(txtUserNamePerna.getText(),hash.hashString(txtPasswordPerna.getText()),txtEmailSingupPerNa.getText(),txtNumeroSingupPerna.getText());
-                NaturalDAO ndao=new NaturalDAOImpl();
-                Boolean checkuser=ndao.encontrar_G(ndto);
-                if(checkuser)
-                    System.out.println("User Already in use");
-                else{
-                    ndao.create(ndto);
-                    System.out.println("Success");
-                }
     }
 
 
