@@ -1,8 +1,11 @@
 package com.example.proyect;
 
 
+import com.example.proyect.model.dao.EmpresaDAO;
 import com.example.proyect.model.dao.NaturalDAO;
+import com.example.proyect.model.dao.impl.EmpresaDAOImpl;
 import com.example.proyect.model.dao.impl.NaturalDAOImpl;
+import com.example.proyect.model.dto.EmpresaDTO;
 import com.example.proyect.model.dto.NaturalDTO;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -350,8 +353,8 @@ public class Controller_singup implements Initializable {
     public void registerFormEmp() throws NoSuchAlgorithmException, SQLException { // funcion hace el hash de contraseñas, envio datos, y la verificacion de usuario
 
         if (registrationAuthorization == true){
-            NaturalDTO ndto= new NaturalDTO(txtUserName.getText(),hash.hashString(txtPassword.getText()),txtEmailSingup.getText(),txtNumeroSingup.getText()); // cambiar a empresa dto
-            NaturalDAO ndao=new NaturalDAOImpl();
+            EmpresaDTO ndto= new EmpresaDTO(txtUserName.getText(),hash.hashString(txtPassword.getText()),txtEmailSingup.getText(),txtNumeroSingup.getText(),txtNumeroID.getText()); // cambiar a empresa dto
+            EmpresaDAO ndao=new EmpresaDAOImpl();
             Boolean checkuser=ndao.encontrar_G(ndto);
             if(checkuser) {
                 Alert alert = new Alert(Alert.AlertType.ERROR);
