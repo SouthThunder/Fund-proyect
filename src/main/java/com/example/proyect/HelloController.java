@@ -40,103 +40,13 @@ public class HelloController implements Initializable {
     private VBox singInForm;
     private VBox singUpForm;
 
-
-
-
-    //metodos
-    @FXML
-    public void actionEvent(ActionEvent event){
-
-        Object evt = event.getSource();
-
-        if(evt.equals(btnSingin)){    //condicional para saber que elemnto se acciono
-
-            singInForm.setVisible(true);
-            singUpForm.setVisible(false);
-
-        } else if (evt.equals(btnSingup)) {
-            singInForm.setVisible(false);
-            singUpForm.setVisible(true);
-        }
-
-    }
-
-    public void onSingUpButtonClicked(MouseEvent event){
-
-        singInForm.setVisible(false);
-        singUpForm.setVisible(true);
-
-
-
-
-    }
-
-
-    // merodo para obtener las escenas VBox
-    private VBox loadForm(String url) throws IOException{
-
-        return (VBox) FXMLLoader.load(getClass().getResource(url));
-    }
+    
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        try {
-            singInForm = loadForm("Singin.fxml");
-            singUpForm = loadForm("Singup.fxml");
-            containerForm.getChildren().addAll(singInForm,singUpForm);
-            singInForm.setVisible(true);
-            singUpForm.setVisible(false);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
 
     }
-
-
-    public void holi(MouseEvent event){
-        System.out.println("soy un holi");
-    }
-
-    public void onExitButtonClicked(MouseEvent event){ // evento que al darle click se salga del promgrama
-        // este metodo esta implementado  a la imagen de salida, para que cuando se le de click se salga del programa
-        Platform.exit();
-        System.exit(0);
-    }
-
-
-
- // Carlos se va a ir demandado
-
-
-
-
-    /*
-    public void abrirVista2(MouseEvent event){
-
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Vista2.fxml"));
-
-            Parent root = loader.load();
-
-            Controller_Vista2 controller = loader.getController();
-
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL); // para que cunado se abra la nueva ventana no se pueda acceder a la anetrior
-            stage.setScene(scene);
-            stage.show();
-
-
-        }catch (IOException e) {
-            // Manejo de la excepción
-            System.err.println("Error");
-        }
-
-    }
-
-     */
 
 
 }

@@ -34,52 +34,6 @@ public class Controller_singin implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb){
 
-
-        maskPassword(txtpasswordSingin,txtpasswordSinginMask,checkViewpasswordSingin);
-
-
-        // metodos para restringir el uso de espacios en contraseñas y usuario
-        txtUsuarioSingin.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if(event.getCharacter().equals(" ")){
-                    event.consume();
-                }
-            }
-        });
-
-        txtpasswordSingin.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if(event.getCharacter().equals(" ")){
-                    event.consume();
-                }
-            }
-        });
-
-        txtpasswordSinginMask.addEventFilter(KeyEvent.KEY_TYPED, new EventHandler<KeyEvent>() {
-            @Override
-            public void handle(KeyEvent event) {
-                if(event.getCharacter().equals(" ")){
-                    event.consume();
-                }
-            }
-        });
-
-
-    }
-
-
-    public void maskPassword(PasswordField pass,TextField text,CheckBox check){
-
-        text.setVisible(false);
-        text.setManaged(false);
-
-        text.managedProperty().bind(check.selectedProperty());
-        text.visibleProperty().bind(check.selectedProperty());
-
-        text.textProperty().bindBidirectional(pass.textProperty());
-
     }
 
 }
