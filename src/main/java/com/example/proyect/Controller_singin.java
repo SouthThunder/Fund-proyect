@@ -112,8 +112,10 @@ public class Controller_singin extends Encrypt implements Initializable {
 
     // Confirmacion de logIn y entrada a home
     public void onSingIpButtonClicked() throws NoSuchAlgorithmException{
-        if(sign_in())
+        if(sign_in()){
+            System.out.println("Enter access");
             access();
+        }
     }
 
     public void access() throws NoSuchAlgorithmException{ // si el acceso se hizo correctamente abre la otra ventana
@@ -127,7 +129,7 @@ public class Controller_singin extends Encrypt implements Initializable {
                 Stage primaryStage = (Stage) scene.getWindow();
                 primaryStage.setScene(newScene);
                 // Cierra la escena anterior
-                primaryStage.close();
+                //primaryStage.close();
             }catch (IOException exp){
                 System.out.println(exp);
             }

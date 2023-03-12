@@ -66,7 +66,7 @@ public class EmpresaDAOImpl implements EmpresaDAO {
         Boolean res=false;
         try {
             this.mySql.conectar();
-            String query= "SELECT * FROM empresa WHERE username= '" + login.getUser() + "'";
+            String query= "SELECT * FROM empresa WHERE nombre_empresa= '" + login.getUser() + "'";
             Statement stmt =this.mySql.getConnection().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rs= stmt.executeQuery(query);
             if(rs.first()){
