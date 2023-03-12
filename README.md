@@ -8,7 +8,7 @@ Documentación:
         
         Contenido:
             
-            > Documento de Vision
+            > Documento de Visión
             > Plan de iteraciones
         
         
@@ -21,10 +21,11 @@ Diagramas:
        Contenido:
             
             > Diagrama de casos de uso
-            > Relacion Base de datos
+            > Relación Base de datos
+            > Diagrama MVC
 
 
-Pantalla :
+Pantalla:
 
    -> https://www.figma.com/file/RVTbOeLVhsZ4doPbOWSR4B/Untitled?node-id=0%3A1&t=zKU99dYQGryuMWre-0 <-
    
