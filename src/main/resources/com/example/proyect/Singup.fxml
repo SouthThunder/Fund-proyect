@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="panelFormularioSingup" alignment="CENTER" prefHeight="474.0" prefWidth="700.0" stylesheets="@stylesheets/Signup.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.Controller_singup">
+<VBox fx:id="panelFormularioSingup" alignment="CENTER" prefHeight="474.0" prefWidth="700.0" stylesheets="@stylesheets/Signup.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.Controller_singup">
    <children>
       <Separator orientation="VERTICAL" prefWidth="6.0" visible="false" />
          <VBox fx:id="backtitle" maxHeight="62" translateX="0" translateY="-10">
@@ -60,38 +60,18 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <Label text="Nombre de Usuario" />
+                  <Label text="Nombre de Empresa" />
                   <TextField fx:id="txtUserName" prefHeight="30.0" promptText="Empresa01" styleClass="signupdataentry">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <HBox>
-                     <children>
-                        <VBox HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                           <children>
-                              <Label text="Numero de Regitro Unico Tributario (RUT))" />
-                              <TextField fx:id="txtNumeroID" prefHeight="30.0" promptText="Ejem: 12345-3" styleClass="signupdataentry">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </TextField>
-                           </children>
-                        </VBox>
-                        <VBox HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets left="5.0" />
-                           </HBox.margin>
-                           <children>
-                              <Label text="Documento  de verificación" />
-                              <Button fx:id="upload_data" alignment="CENTER" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="33.0" prefWidth="115.0" text="Subir" textAlignment="CENTER" textFill="WHITE" />
-                           </children>
-                        </VBox>
-                     </children>
-                  </HBox>
+                  <Label text="Numero de Regitro Unico Tributario (RUT))" />
+                  <TextField fx:id="txtNumeroID" prefHeight="32.0" prefWidth="683.0" promptText="Ejem: 12345-3" styleClass="signupdataentry">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
                   <HBox>
                      <children>
                         <VBox HBox.hgrow="ALWAYS">
@@ -130,7 +110,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="btnSingUp" mnemonicParsing="false" onAction="#registerEmp" prefHeight="35.0" prefWidth="100.0" styleClass="signupactionbtns" text="Registrar" textFill="WHITE">
+                        <Button fx:id="btnSingUp" mnemonicParsing="false" onAction="#registerEmp" onMouseClicked="#registerFormEmp" prefHeight="35.0" prefWidth="100.0" styleClass="signupactionbtns" text="Registrar" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>
@@ -213,7 +193,7 @@
                         <Insets top="20.0" />
                      </VBox.margin>
                      <children>
-                        <Button fx:id="btnSingUpPerna" mnemonicParsing="false" onAction="#registerPerna" prefHeight="35.0" prefWidth="100.0" styleClass="signupactionbtns" text="Registrar" textFill="WHITE">
+                        <Button fx:id="btnSingUpPerna" mnemonicParsing="false" onAction="#registerPerna" onMouseClicked="#registerFormPerna" prefHeight="35.0" prefWidth="100.0" styleClass="signupactionbtns" text="Registrar" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="14.0" />
                            </font>

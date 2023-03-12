@@ -1,5 +1,6 @@
 package com.example.proyect;
 
+import com.example.proyect.util.MySql;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
@@ -35,16 +36,28 @@ public class HelloController implements Initializable {
     @FXML
     private StackPane containerForm;
 
-
+   //definicon de atributos, los cuales no estan dentro del fxml
     private VBox singInForm;
     private VBox singUpForm;
+    private MySql mySql= new MySql();
 
 
+    public HelloController(){ // coneccion a la base de datos
+        this.mySql.conectar();
+    }
 
 
-    //metodos
+        /*
+        |
+        |
+        |
+        |
+       \*/
+
+
+    //cambio de estado (singIN, singUp)
     @FXML
-    public void actionEvent(ActionEvent event){
+    public void actionEvent(ActionEvent event){ // cambia al estado sinIn
 
         Object evt = event.getSource();
 
@@ -60,23 +73,30 @@ public class HelloController implements Initializable {
 
     }
 
-    public void onSingUpButtonClicked(MouseEvent event){
+    public void onSingUpButtonClicked(MouseEvent event){ // cambio de estado a singup
 
         singInForm.setVisible(false);
         singUpForm.setVisible(true);
 
-
-
-
     }
 
 
-    // merodo para obtener las escenas VBox
+    // metodo para obtener las escenas VBox
     private VBox loadForm(String url) throws IOException{
 
         return (VBox) FXMLLoader.load(getClass().getResource(url));
     }
 
+
+        /*
+        |
+        |
+        |
+        |
+       \*/
+
+
+    // Metodo inicializador
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
@@ -95,46 +115,21 @@ public class HelloController implements Initializable {
     }
 
 
+        /*
+        |
+        |
+        |
+        |
+       \*/
 
-    public void onExitButtonClicked(MouseEvent event){ // evento que al darle click se salga del promgrama
+
+    // salida de programa
+    public void onExitButtonClicked(){ // evento que al darle click se salga del promgrama
         // este metodo esta implementado  a la imagen de salida, para que cuando se le de click se salga del programa
+        mySql.desconectar();   //esta funcion genera error por lo que no se puede conectar a la base de datos
         Platform.exit();
         System.exit(0);
     }
-
-
-
- // Carlos se va a ir demandado
-
-
-
-
-    /*
-    public void abrirVista2(MouseEvent event){
-
-        try {
-
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("Vista2.fxml"));
-
-            Parent root = loader.load();
-
-            Controller_Vista2 controller = loader.getController();
-
-            Scene scene = new Scene(root);
-            Stage stage = new Stage();
-            stage.initModality(Modality.APPLICATION_MODAL); // para que cunado se abra la nueva ventana no se pueda acceder a la anetrior
-            stage.setScene(scene);
-            stage.show();
-
-
-        }catch (IOException e) {
-            // Manejo de la excepción
-            System.err.println("Error");
-        }
-
-    }
-
-     */
 
 
 }
