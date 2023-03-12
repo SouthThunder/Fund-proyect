@@ -24,12 +24,6 @@ Diagramas:
             > Relación Base de datos
             > Diagrama MVC
 
-
-Pantalla:
-
-   -> https://www.figma.com/file/RVTbOeLVhsZ4doPbOWSR4B/Untitled?node-id=0%3A1&t=zKU99dYQGryuMWre-0 <-
-   
-        Descripción: Este link muestra un bosquejo de la pantalla principal del programa
         
 
 Cronograma:
