@@ -59,8 +59,7 @@ public class Controller_singup implements Initializable {
 
     @FXML
     private Button btnSingUp;
-    @FXML
-    private Button btnCleanSingUp;
+
 
 
     // atributos para formulario persona natural
@@ -79,8 +78,7 @@ public class Controller_singup implements Initializable {
     private TextField txtConfirmPasswordPerna;
     @FXML
     private Button btnSingUpPerna;
-    @FXML
-    private Button btnCleanSingUpPerna;
+
 
 
         /*
@@ -116,7 +114,7 @@ public class Controller_singup implements Initializable {
 
     // Verificacion y restricciones de registro en empresas
 
-    public void registerEmp(){
+    public void registerEmp() throws NoSuchAlgorithmException {
 
         textFieldEmptyEmp();
 
@@ -351,9 +349,8 @@ public class Controller_singup implements Initializable {
     // Envio de datos a la base de datos para el formulario de persona natural
 
     public void registerFormEmp() throws NoSuchAlgorithmException, SQLException { // funcion hace el hash de contraseñas, envio datos, y la verificacion de usuario
-
         if (registrationAuthorization == true){
-            EmpresaDTO ndto= new EmpresaDTO(txtUserName.getText(),hash.hashString(txtPassword.getText()),txtEmailSingup.getText(),txtNumeroSingup.getText(),txtNumeroID.getText()); // cambiar a empresa dto
+            EmpresaDTO ndto= new EmpresaDTO(txtUserName.getText(),hash.hashString(txtPassword.getText()),txtEmailSingup.getText(),txtNumeroSingup.getText(),txtNumeroID.getText(), false);
             EmpresaDAO ndao=new EmpresaDAOImpl();
             Boolean checkuser=ndao.encontrar_G(ndto);
             if(checkuser) {
@@ -389,7 +386,7 @@ public class Controller_singup implements Initializable {
     public void registerFormPerna() throws NoSuchAlgorithmException, SQLException { // funcion hace el hash de contraseñas, envio datos, y la verificacion de usuario
 
         if (registrationAuthorization == true){
-            NaturalDTO ndto= new NaturalDTO(txtUserNamePerna.getText(),hash.hashString(txtPasswordPerna.getText()),txtEmailSingupPerNa.getText(),txtNumeroSingupPerna.getText());
+            NaturalDTO ndto= new NaturalDTO(txtUserNamePerna.getText(),hash.hashString(txtPasswordPerna.getText()),txtEmailSingupPerNa.getText(),txtNumeroSingupPerna.getText(), null, null);
             NaturalDAO ndao=new NaturalDAOImpl();
             Boolean checkuser=ndao.encontrar_G(ndto);
             if(checkuser){
@@ -411,7 +408,6 @@ public class Controller_singup implements Initializable {
             }
         }
     }
-
 
     public void delete_account() throws SQLException{
 

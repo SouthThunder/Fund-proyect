@@ -100,6 +100,8 @@ public class HelloController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+        String hola = "";
+
         try {
             singInForm = loadForm("Singin.fxml");
             singUpForm = loadForm("Singup.fxml");
