@@ -91,14 +91,16 @@ public class EmpresaDAOImpl implements EmpresaDAO {
         try {
             this.mySql.conectar();
             String query= "SELECT * FROM empresa WHERE correo= '" + user +"'";
-            System.out.println(query);
             Statement stmt = this.mySql.getConnection().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = stmt.executeQuery(query);
             if (rs.first()) {
-                EmpresaDTO log = new EmpresaDTO(rs.getString("nombre_empresa"),rs.getString("contraseña"), rs.getString("correo"), rs.getString("telefono"), rs.getString("rut"));
+                EmpresaDTO log = new EmpresaDTO(rs.getString("nombre_empresa"),rs.getString("contraseña"), rs.getString("correo"), rs.getString("telefono"), rs.getString("rut"), rs.getBoolean("estado_suscripcion"));
                 rs.close();
                 stmt.close();
-                return log;
+                if(user.equals(log.getEmail()))
+                    return log;
+                else
+                    return null;
             } else {
                 rs.close();
                 stmt.close();

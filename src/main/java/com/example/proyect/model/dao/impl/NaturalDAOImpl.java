@@ -90,14 +90,16 @@ public class NaturalDAOImpl implements NaturalDAO {
         try {
             this.mySql.conectar();
             String query= "SELECT * FROM usuario WHERE correo= '" + user +"'";
-            System.out.println(query);
             Statement stmt = this.mySql.getConnection().createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_READ_ONLY);
             ResultSet rs = stmt.executeQuery(query);
             if (rs.first()) {
-                NaturalDTO log = new NaturalDTO(rs.getString("username"),rs.getString("contraseña"), rs.getString("correo"), rs.getString("telefono"));
+                NaturalDTO log = new NaturalDTO(rs.getString("username"),rs.getString("contraseña"), rs.getString("correo"), rs.getString("telefono"), rs.getString("nombre"), rs.getString("apellidos"));
                 rs.close();
                 stmt.close();
-                return log;
+                if(user.equals(log.getEmail()))
+                    return log;
+                else
+                    return null;
             } else {
                 rs.close();
                 stmt.close();

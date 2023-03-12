@@ -1,6 +1,12 @@
 package com.example.proyect;
 
 
+import com.example.proyect.model.dao.EmpresaDAO;
+import com.example.proyect.model.dao.NaturalDAO;
+import com.example.proyect.model.dao.impl.EmpresaDAOImpl;
+import com.example.proyect.model.dao.impl.NaturalDAOImpl;
+import com.example.proyect.model.dto.EmpresaDTO;
+import com.example.proyect.model.dto.NaturalDTO;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -106,14 +112,11 @@ public class Controller_singin extends Encrypt implements Initializable {
 
     // Confirmacion de logIn y entrada a home
     public void onSingIpButtonClicked() throws NoSuchAlgorithmException{
-        checkPass(txtpasswordSinginMask.getText());
+        if(sign_in())
+            access();
     }
 
-    public void checkPass(String input) throws NoSuchAlgorithmException{ // si el acceso se hizo correctamente abre la otra ventana
-        if(input==(super.hashString(input))){
-
-            System.out.println("Log-in success");
-
+    public void access() throws NoSuchAlgorithmException{ // si el acceso se hizo correctamente abre la otra ventana
             try {
                 // Obtiene la escena actual
                 Scene scene = btnSingin.getScene();
@@ -128,8 +131,6 @@ public class Controller_singin extends Encrypt implements Initializable {
             }catch (IOException exp){
                 System.out.println(exp);
             }
-
-        }
     }
 
 
@@ -190,6 +191,34 @@ public class Controller_singin extends Encrypt implements Initializable {
                 }
             }
         });
+    }
+
+    public Boolean sign_in() throws NoSuchAlgorithmException {
+        Encrypt hash= new Encrypt();
+        NaturalDAO auxn= new NaturalDAOImpl();
+        EmpresaDAO auxe= new EmpresaDAOImpl();
+        NaturalDTO persona= auxn.findByUser(txtUsuarioSingin.getText());
+        EmpresaDTO empresa= auxe.findByUser(txtUsuarioSingin.getText());
+        if(persona==null && empresa==null){
+            System.out.println("Usuario no encontrado");
+        }else if(empresa!=null){
+            if(empresa.getPassword().equals(hash.hashString(txtpasswordSingin.getText()))){
+                System.out.println("Log-in successfull, welcome " + empresa.getUser());
+                return true;
+            }
+            else{
+                System.out.println("Las credenciales no coinciden, porfavor revise los datos");
+            }
+        }else if(persona!=null){
+            if(persona.getPassword().equals(hash.hashString(txtpasswordSingin.getText()))){
+                System.out.println("Log-in successfull, welcome " + persona.getUser());
+                return true;
+            }
+            else{
+                System.out.println("Las credenciales no coinciden, porfavor revise los datos");
+            }
+        }
+        return false;
     }
 
 

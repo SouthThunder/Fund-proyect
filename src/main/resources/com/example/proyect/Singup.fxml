@@ -67,7 +67,7 @@
                      </font>
                   </TextField>
                   <Label text="Numero de Regitro Unico Tributario (RUT))" />
-                  <TextField fx:id="txtNumeroID" prefHeight="32.0" prefWidth="683.0" promptText="Ejem: 12345-3" styleClass="signupdataentry">
+                  <TextField fx:id="txtNumeroID" prefHeight="32.0" prefWidth="683.0" promptText="  Ejem: 12345-3" styleClass="signupdataentry">
                      <font>
                         <Font size="14.0" />
                      </font>

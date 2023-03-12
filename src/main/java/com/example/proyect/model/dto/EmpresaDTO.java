@@ -5,9 +5,10 @@ public class EmpresaDTO extends User{
     private String RUT;
     private Boolean estado_suscripcion;
 
-    public EmpresaDTO(String user, String password, String email, String phone, String RUT){
+    public EmpresaDTO(String user, String password, String email, String phone, String RUT, Boolean estado_suscripcion){
         super(user, password, email, phone);
         this.RUT=RUT;
+        this.estado_suscripcion=estado_suscripcion;
     }
 
     public EmpresaDTO(String user, String email){

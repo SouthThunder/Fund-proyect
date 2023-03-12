@@ -6,8 +6,10 @@ public class NaturalDTO extends User{
     private String nombre;
     private String apellido;
 
-    public NaturalDTO(String user, String password, String email, String phone) {
+    public NaturalDTO(String user, String password, String email, String phone, String nombre, String apellido) {
         super(user, password, email, phone);
+        this.nombre=nombre;
+        this.apellido=apellido;
     }
 
     public NaturalDTO(String user, String email){super(user,email);};
