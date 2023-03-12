@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="panelFormularioSingup" alignment="CENTER" prefHeight="474.0" prefWidth="700.0" stylesheets="@stylesheets/Signup.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.Controller_singup">
+<VBox fx:id="panelFormularioSingup" alignment="CENTER" prefHeight="474.0" prefWidth="700.0" stylesheets="@stylesheets/Signup.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.proyect.Controller_singup">
    <children>
       <Separator orientation="VERTICAL" prefWidth="6.0" visible="false" />
          <VBox fx:id="backtitle" maxHeight="62" translateX="0" translateY="-10">
@@ -66,28 +66,12 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <HBox>
-                     <children>
-                        <VBox HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets right="5.0" />
-                           </HBox.margin>
-                           <children>
-                              <Label text="Numero de Regitro Unico Tributario (RUT))" />
-                              <TextField fx:id="txtNumeroID" prefHeight="32.0" prefWidth="910.0" promptText="Ejem: 12345-3" styleClass="signupdataentry">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </TextField>
-                           </children>
-                        </VBox>
-                        <VBox HBox.hgrow="ALWAYS">
-                           <HBox.margin>
-                              <Insets left="5.0" />
-                           </HBox.margin>
-                        </VBox>
-                     </children>
-                  </HBox>
+                  <Label text="Numero de Regitro Unico Tributario (RUT))" />
+                  <TextField fx:id="txtNumeroID" prefHeight="32.0" prefWidth="683.0" promptText="Ejem: 12345-3" styleClass="signupdataentry">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
                   <HBox>
                      <children>
                         <VBox HBox.hgrow="ALWAYS">
